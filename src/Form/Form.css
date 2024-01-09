@@ -28,7 +28,7 @@ input {
   .clear-button,
   .save-conversion-button {
     margin: 10px;
-    width: 80%;
+    width: 150px;
     height: 3vh;
   }
 

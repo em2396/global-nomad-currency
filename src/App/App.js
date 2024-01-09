@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { getCurrency, getConversion } from '../ApiCalls/ApiCalls';
 import Form from '../Form/Form'
 import ShowConversion from '../Conversion/Conversion';
+import lottie from "lottie-web";
 import './App.css';
 
 export default function App() {
@@ -24,6 +25,17 @@ export default function App() {
   //       setConversion(data)
   //     })
   // }, [])
+
+
+  useEffect(() => {
+    lottie.loadAnimation({
+        animationData: require('../globalnomad.json'),
+        autoplay: true,
+        container: container.current,
+        loop: true,
+        renderer: 'svg'
+    })
+}, [])
 
   function currentConversionDisplay(newConversion) {
     console.log(newConversion, 'conversion inside App')
