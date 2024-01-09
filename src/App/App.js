@@ -1,11 +1,15 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { getCurrency, getConversion } from '../ApiCalls/ApiCalls';
+import Form from '../Form/Form'
+import ShowConversion from '../Conversion/Conversion';
 import './App.css';
 
-function App() {
-  const [ currency, setCurrency ] = useState([])
-  const [ conversion, setConversion ] = useState([])
+export default function App() {
+  // const [ currency, setCurrency ] = useState([])
+  const [ conversion, setConversion ] = useState([]);
+  const [ savedConversions, setSavedConversions ] = useState([]); 
+  const [ error, setError ] = useState("");
 
   // useEffect(() => {
   //   getCurrency() 
@@ -21,14 +25,26 @@ function App() {
   //     })
   // }, [])
 
+  function currentConversionDisplay(newConversion) {
+    console.log(newConversion, 'conversion inside App')
+    setConversion(newConversion)
+  }
+
+  function addToSaved(saveMe) {
+    setSavedConversions([...savedConversions, saveMe])
+  }
+  console.log(savedConversions, 'saved conversions')
+
 
   return (
     <div className="App">
       <header>
       <Link to='/' style={{ textDecoration: 'none', color: 'inherit'}}>Global Nomad Currency</Link>
       </header>
+      <Form currentConversionDisplay={currentConversionDisplay} addToSaved={addToSaved}/>
+      <ShowConversion conversion={conversion}/>
     </div>
   );
 }
 
-export default App;
+
