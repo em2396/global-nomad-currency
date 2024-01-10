@@ -1,7 +1,7 @@
 import './SavedConversions.css';
 import OneConversion from '../OneConversion/OneConversion';
 
-export default function SavedConversions({savedToConversions}) {
+export default function SavedConversions({savedToConversions, deleteSaved}) {
 
     console.log(savedToConversions, 'savedToConversions')
     return (
@@ -10,7 +10,7 @@ export default function SavedConversions({savedToConversions}) {
             <div>
             {savedToConversions.length > 0 ? (
                 savedToConversions.map(current => (
-                    <OneConversion key={current.id} current={current}/>
+                    <OneConversion key={current.id} id={current.id} current={current} deleteSaved={deleteSaved}/>
                     ))
                 ) : ( 
                 <p>No saved conversions to display.</p>

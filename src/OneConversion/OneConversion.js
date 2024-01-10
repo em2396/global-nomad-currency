@@ -1,11 +1,13 @@
 
 
-export default function OneConversion({current}) {
+export default function OneConversion({current, deleteSaved, id}) {
     console.log(current, 'current inside one conversion')
     return (
         <div>
-            <button>Delete</button>
+            <button onClick={() => deleteSaved(id)}>Delete</button>
             <h2>{current.id}</h2>
         </div>
     )
 }
+
+// deleteSaved={deleteSaved}
