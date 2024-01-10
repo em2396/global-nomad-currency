@@ -3,11 +3,6 @@
   position: relative;
 }
 
-body {
-  margin: 0;
-  padding: 0;
-}
-
 header {
   font-size: 60px;
   /* margin: 30px; */
@@ -22,6 +17,7 @@ header {
   color: black; 
   width: 40%;
   height: 45%;
+  /* z-index: 5; */
 }
 
 #animation-container {

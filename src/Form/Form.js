@@ -1,5 +1,6 @@
 import './Form.css';
 import { useState, useRef, useEffect } from 'react'
+import { Link } from 'react-router-dom'
 
 
 
@@ -59,8 +60,11 @@ export default function Form({currentConversionDisplay, addToSaved}) {
                 </div>
                 <div className='form-buttons'>
                     <button className="show-conversion-button" onClick={event => displayConversion(event)}>Show Conversion</button>
-                    <button className="clear-button" onClick={() => clearInputs()}>Clear</button>
                     <button className="save-conversion-button" onClick={event => displayConversion(event)}>Save Conversion</button>
+                    <button className="clear-button" onClick={() => clearInputs()}>Clear</button>
+                    <Link to="/saved">
+                        <button className="saved-button">Go to Saved</button>
+                    </Link>
                 </div>
             </form>
     )

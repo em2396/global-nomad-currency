@@ -2,16 +2,16 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  height: 100vh;
+  margin-top: 100px;
+  /* height: 100vh; */
 }
-
+/* 
 form {
     margin: auto;
     display: flex;
     flex-direction: column;
     align-items: center;
-}
+} */
 
 input {
     display: flex;
@@ -29,10 +29,10 @@ input {
 
 .form-buttons {
     display: flex;
-    justify-content: center;
   }
 
   .show-conversion-button, 
+  .saved-button,
   .clear-button,
   .save-conversion-button {
     margin: 10px;

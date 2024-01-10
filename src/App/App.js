@@ -1,8 +1,9 @@
 import { useEffect, useState, useRef } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Routes, Route } from 'react-router-dom';
 import { getCurrency, getConversion } from '../ApiCalls/ApiCalls';
 import Form from '../Form/Form'
 import ShowConversion from '../Conversion/Conversion';
+import SavedConversions from '../SavedConversions/SavedConversions'
 import lottie from "lottie-web";
 
 import './App.css';
@@ -10,7 +11,7 @@ import './App.css';
 export default function App() {
   // const [ currency, setCurrency ] = useState([])
   const [ conversion, setConversion ] = useState([]);
-  const [ savedConversions, setSavedConversions ] = useState([]); 
+  const [ savedToConversions, setSavedConversions ] = useState([]); 
   const [ error, setError ] = useState("");
 
   // useEffect(() => {
@@ -30,7 +31,7 @@ export default function App() {
   const container = useRef(null); 
   useEffect(() => {
     lottie.loadAnimation({
-        animationData: require('../2B52bIHWx8.json'),
+        animationData: require('../wave.json'),
         autoplay: true,
         container: container.current,
         loop: true,
@@ -45,22 +46,30 @@ export default function App() {
   }
 
   function addToSaved(saveMe) {
-    setSavedConversions([...savedConversions, saveMe])
+    setSavedConversions([...savedToConversions, saveMe])
   }
-  console.log(savedConversions, 'saved conversions')
+  console.log(savedToConversions, 'saved conversions')
 
 
   return (
     <main className="App">
-      <div>
-        <div ref={container} id="animation-container"></div>
-        <header>
-        <Link to='/' style={{ textDecoration: 'none', color: 'inherit'}}>Global Nomad Currency</Link>
-        </header>
-        <Form currentConversionDisplay={currentConversionDisplay} addToSaved={addToSaved}/>
-        <ShowConversion className="current-conversion" conversion={conversion}/>
-      </div>
-     
+      <div ref={container} id="animation-container"></div>
+      <header>
+      <Link to='/' style={{ textDecoration: 'none', color: 'inherit'}}>Global Nomad Currency</Link>
+      </header>
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <>
+              <Form currentConversionDisplay={currentConversionDisplay} addToSaved={addToSaved} />
+              <ShowConversion className="current-conversion" conversion={conversion} />
+              {error && <h2>Oh No! An error occurred!</h2>}
+            </>
+          }
+        />
+        <Route path="/saved" element={<SavedConversions savedToConversions={savedToConversions} />} /> 
+      </Routes>
     </main>
   );
 }
