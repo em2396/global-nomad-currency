@@ -1,9 +1,32 @@
 .App {
   text-align: center;
+  position: relative;
+}
+
+body {
+  margin: 0;
+  padding: 0;
 }
 
 header {
   font-size: 60px;
-  margin: 30px;
-  margin-bottom: 100px;
+  /* margin: 30px; */
+  /* margin-bottom: 100px; */
+  /* background: #001334; */
+  color: white;
+  margin: 0;
+}
+
+.current-conversion {
+  background: white;
+  color: black; 
+  width: 40%;
+  height: 45%;
+}
+
+#animation-container {
+  position: fixed;
+  width: 100vw;
+  /* height: 100vh; */
+  z-index: -1;
 }

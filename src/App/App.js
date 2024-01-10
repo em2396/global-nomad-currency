@@ -1,9 +1,10 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { getCurrency, getConversion } from '../ApiCalls/ApiCalls';
 import Form from '../Form/Form'
 import ShowConversion from '../Conversion/Conversion';
 import lottie from "lottie-web";
+
 import './App.css';
 
 export default function App() {
@@ -26,16 +27,17 @@ export default function App() {
   //     })
   // }, [])
 
-
+  const container = useRef(null); 
   useEffect(() => {
     lottie.loadAnimation({
-        animationData: require('../globalnomad.json'),
+        animationData: require('../2B52bIHWx8.json'),
         autoplay: true,
         container: container.current,
         loop: true,
         renderer: 'svg'
     })
 }, [])
+ 
 
   function currentConversionDisplay(newConversion) {
     console.log(newConversion, 'conversion inside App')
@@ -49,13 +51,17 @@ export default function App() {
 
 
   return (
-    <div className="App">
-      <header>
-      <Link to='/' style={{ textDecoration: 'none', color: 'inherit'}}>Global Nomad Currency</Link>
-      </header>
-      <Form currentConversionDisplay={currentConversionDisplay} addToSaved={addToSaved}/>
-      <ShowConversion conversion={conversion}/>
-    </div>
+    <main className="App">
+      <div>
+        <div ref={container} id="animation-container"></div>
+        <header>
+        <Link to='/' style={{ textDecoration: 'none', color: 'inherit'}}>Global Nomad Currency</Link>
+        </header>
+        <Form currentConversionDisplay={currentConversionDisplay} addToSaved={addToSaved}/>
+        <ShowConversion className="current-conversion" conversion={conversion}/>
+      </div>
+     
+    </main>
   );
 }
 
