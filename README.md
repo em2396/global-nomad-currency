@@ -8,3 +8,36 @@
 ![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
 ![React Router](https://img.shields.io/badge/React_Router-CA4245?style=for-the-badge&logo=react-router&logoColor=white)
 ![Cypress](https://img.shields.io/badge/Cypress-17202C?logo=cypress&logoColor=fff&style=for-the-badge)
+
+## 👩‍💻 👩‍💻 👨‍💻 👩‍💻 Collaborators
+[Emalee Poellot](https://github.com/em2396)  |
+
+</div>
+
+## 💭 Abstract
+
+## 📝  Context
+
+
+## 🎥 Preview 
+
+
+## 🔌 Server Setup
+1. Clone the repository: Open a terminal window. Navigate to the directory where you want to clone the repository. Run the following command: git clone 
+2. Install the dependencies: Run the following command in the cloned repository directory: npm install
+3. Run the React app: Run the following command in the cloned repository directory: npm start
+4. Open the app in your web browser by navigating to http://localhost:3000
+
+## 📚 Learning Goals
+
+
+## 🥇 Wins
+⭐ 
+⭐
+⭐ 
+
+
+## 🚧 Challenges
+❗ 
+❗
+❗
