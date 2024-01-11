@@ -37,8 +37,9 @@ export default function App() {
     })
   }, [])
     
-  function currentConversionDisplay(newConversion, buttonClick, getConv) {
+  function currentConversionDisplay(newConversion, buttonClick) {
     setConversion({...newConversion})
+    console.log(conversion, 'conversion inside of currentDisplay')
     if (buttonClick.contains('save-conversion-button')) {
       setSavedToConversions([...savedToConversions, conversion])
     }
