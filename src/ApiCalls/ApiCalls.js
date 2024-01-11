@@ -9,16 +9,16 @@ function getCurrency() {
         })
 }
 
-function getConversion() {
-    //will need to input two parameters and use string interpolation
-   return fetch('https://v6.exchangerate-api.com/v6/516b2360d76d3364e8dc234b/pair/EUR/GBP')
-        .then(response => {
-            if(!response.ok) {
-                console.log('err') 
-            }
-            return response.json()
-        })
-}
+// function getConversion() {
+//     //will need to input two parameters and use string interpolation
+//    return fetch('https://v6.exchangerate-api.com/v6/516b2360d76d3364e8dc234b/pair/EUR/GBP')
+//         .then(response => {
+//             if(!response.ok) {
+//                 console.log('err') 
+//             }
+//             return response.json()
+//         })
+// }
 
 //Currency data
 //base_code
@@ -66,4 +66,4 @@ function getConversion() {
 //     "conversion_rate": 0.861
 // }
 
-export { getCurrency, getConversion }
+export { getCurrency }

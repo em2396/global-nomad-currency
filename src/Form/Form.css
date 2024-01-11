@@ -13,16 +13,16 @@ form {
     align-items: center;
 } */
 
-input {
+input, form {
     display: flex;
     margin: 5px;
     width: 100%;
-    border: 2px solid black;
     font-size: 30px;
     cursor: pointer;
 }
 
-.form-inputs {
+.form-inputs,
+label {
     display: flex;
     margin-bottom: 20px;
 }
