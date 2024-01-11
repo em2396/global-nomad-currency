@@ -6,56 +6,34 @@ export default function Form({currentConversionDisplay, addToSaved, twoConversio
     const [ amount, setAmount ] = useState("");
     const [ firstCountry, setFirstCountry ] = useState("");
     const [ secondCountry, setSecondCountry ] = useState("");
-    // const [ conversionRate, setConversionRate] = useState(0);
 
-
-
-    // function displayConversion(event) {
-    //     event.preventDefault();
-    //     twoConversions(firstCountry, secondCountry, amount)
-    //         .then(data => {
-    //             console.log(data, 'data after then')
-    //            const currentConversion = {
-    //                 id: Date.now(),
-    //                 amount,
-    //                 firstCountry, 
-    //                 secondCountry
-    //             };
-    //             currentConversionDisplay(currentConversion, event.target.classList)
-    //         })
-    //         .catch(error => {
-    //             console.error('Error during conversion:', error);
-    //             // Handle the error as needed
-    //           });
-            
-    // }
-
+    
     async function displayConversion(event) {
         event.preventDefault();
         try {
-          await twoConversions(firstCountry, secondCountry, amount);
-        //   console.log(data, 'data after then');
-      
-          const currentConversion = {
-            id: Date.now(),
-            amount,
-            firstCountry,
-            secondCountry
-          };
-          currentConversionDisplay(currentConversion, event.target.classList);
+        const getConversionRate = await fetch(`https://v6.exchangerate-api.com/v6/516b2360d76d3364e8dc234b/pair/${firstCountry}/${secondCountry}`)
+        const response = await getConversionRate.json()
+        const convertedNumber = await response.conversion_rate * amount
+            const currentConversion = {
+                id: Date.now(),
+                amount,
+                firstCountry,
+                secondCountry,
+                conversionRate: convertedNumber * amount
+            };
+           currentConversionDisplay(currentConversion, event.target.classList);
         } catch (error) {
-          console.error('Error during conversion:', error);
-          // Handle the error as needed
+            console.error('Error during conversion:', error);
         }
-      }
-      
-
+    }
+    
+    
     function clearInputs() {
         setFirstCountry("");
         setSecondCountry("");
         setAmount("");
     }
-
+    
     return (
         <form className='form-section'>
             <div className='form-inputs'>
