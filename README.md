@@ -1,6 +1,8 @@
 </div align="center">
+
 ## 👩‍💻 👩‍💻 👨‍💻 👩‍💻 Collaborators
-[Emalee Poellot](https://github.com/em2396)  |
+
+[Emalee Poellot](https://github.com/em2396) 
 
 
 
