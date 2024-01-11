@@ -1,14 +1,9 @@
 import './Conversion.css';
 
-
 export default function ShowConversion({ conversion }) {
-    const { firstCountry, secondCountry, amount } = conversion;
-
     return (
-        <div>
-            <h1>{firstCountry}</h1>
-            <h2>{secondCountry}</h2>
-            <p>{amount}</p>
+        <div className='conversion-paragraph'>
+           {conversion && <p>{conversion.amount} {conversion.firstCountry} is {conversion.conversionRate} {conversion.secondCountry}</p>}
         </div>
     )
 }

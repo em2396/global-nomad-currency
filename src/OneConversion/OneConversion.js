@@ -5,9 +5,7 @@ export default function OneConversion({current, deleteSaved, id}) {
     return (
         <div>
             <button onClick={() => deleteSaved(id)}>Delete</button>
-            <h2>{current.id}</h2>
+            <h2>{current.amount} {current.firstCountry} to {current.secondCountry} is {current.conversionRate}</h2>
         </div>
     )
 }
-
-// deleteSaved={deleteSaved}

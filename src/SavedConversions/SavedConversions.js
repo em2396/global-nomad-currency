@@ -5,7 +5,7 @@ export default function SavedConversions({savedToConversions, deleteSaved}) {
 
     console.log(savedToConversions, 'savedToConversions')
     return (
-        <div>
+        <div className="saved-conversions">
             <h1>Saved Conversions</h1>
             <div>
             {savedToConversions.length > 0 ? (
