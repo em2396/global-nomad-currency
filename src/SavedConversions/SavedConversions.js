@@ -13,7 +13,7 @@ export default function SavedConversions({savedToConversions, deleteSaved}) {
                     <OneConversion key={current.id} id={current.id} current={current} deleteSaved={deleteSaved}/>
                     ))
                 ) : ( 
-                <p>No saved conversions to display.</p>
+                <p className="no-saved">No saved conversions to display.</p>
                 )}
             </div>
         </div>

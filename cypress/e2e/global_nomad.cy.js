@@ -12,7 +12,7 @@ describe('Display header on page load and drop down of countries', () => {
 
   });
 
-  it("Should display Global Nomad", () => {
+  it("Should display Global Nomad Currency", () => {
     cy.get('header').should('be.visible')
       .get('header').should('contain', 'Global Nomad Currency')
   });
@@ -39,7 +39,7 @@ describe('Display header on page load and drop down of countries', () => {
       .get(".conversion-paragraph").should("contain", `2 USD is 14.69 AED`)
   })
 
-  it("Should save the current conversion", () => {
+  it("Should save the current conversion and navigate to saved", () => {
     cy.get("input").type(2).should('have.value', 2)
     cy.get(".country-one").select(1).invoke("val").should("eq", "USD")
     cy.get(".country-two").select(2).invoke("val").should("eq", "AED")
@@ -47,6 +47,26 @@ describe('Display header on page load and drop down of countries', () => {
       .get(".show-conversion-button").click()
       .get(".save-conversion-button").click()
       .get(".saved-button").click()
+
+      .get(".delete-button").should("be.visible")
+      .get(".one-saved-conversion").should('contain', '2 USD to AED is 14.69')
+  })
+
+  it("Should delete a saved conversion", () => {
+    cy.get("input").type(2).should('have.value', 2)
+    cy.get(".country-one").select(1).invoke("val").should("eq", "USD")
+    cy.get(".country-two").select(2).invoke("val").should("eq", "AED")
+
+      .get(".show-conversion-button").click()
+      .get(".save-conversion-button").click()
+      .get(".saved-button").click()
+
+      .get(".delete-button").should("be.visible")
+      .get(".one-saved-conversion").should('contain', '2 USD to AED is 14.69')
+
+      .get('.delete-button').click()
+      .get('.no-saved').should('contain', 'No saved conversions to display.')
+      .get('one-saved-conversion').should('not.exist')
 
   })
 
