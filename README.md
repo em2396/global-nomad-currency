@@ -26,7 +26,7 @@ The Global Nomad Currency App is a React-based web application designed to provi
 
 
 ## 📝  Context
-
+I am a front-end developer who worked remotely to complete this application. This project was completed week 5 of module 3 of the Front End development program at Turing School of Software and Design.
 
 ## 🎥 Preview 
 
