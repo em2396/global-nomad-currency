@@ -10,23 +10,21 @@ import './App.css';
 
 export default function App() {
   const [ currency, setCurrency ] = useState([])
-  // const [ conversionRate, setConversionRate] = useState(0);
-  const [ conversion, setConversion ] = useState(null);
+  const [ conversion, setConversion ] = useState({});
   const [ savedToConversions, setSavedToConversions ] = useState([]); 
+  const [ showConversion, setShowConversion ] = useState(false);
   const [ error, setError ] = useState("");
-  const [ isLoading, setIsLoading ] = useState(false);
 
   useEffect(() => {
     getCurrency() 
       .then(data => {
-        // console.log(Object.keys(data.conversion_rates), 'currency data')
-        console.log(data, 'data')
         const countryCode = Object.keys(data.conversion_rates)
         setCurrency(countryCode)
-        console.log(currency)
-        return data;
       })
-  }, [])
+      .catch(error => {
+        setError(error.message)
+      })
+  }, []);
 
   const container = useRef(null); 
   useEffect(() => {
@@ -37,19 +35,20 @@ export default function App() {
         loop: true,
         renderer: 'svg'
     })
-  }, [])
+  }, []);
     
   function currentConversionDisplay(newConversion, buttonClick) {
+    setShowConversion(true)
     setConversion({...newConversion})
     if (buttonClick.contains('save-conversion-button')) {
-      setSavedToConversions([...savedToConversions, conversion])
-    }
-  }
+      setSavedToConversions([...savedToConversions, conversion]);
+    };
+  };
 
   function deleteSaved(id) {
     const filteredConversions = savedToConversions.filter(clicked => clicked.id !== id);
     setSavedToConversions(filteredConversions);
-  }
+  };
 
   return (
     <main className="App">
@@ -63,7 +62,7 @@ export default function App() {
           element={
             <>
               <Form currentConversionDisplay={currentConversionDisplay} currency={currency}/>
-              <ShowConversion className="current-conversion" conversion={conversion} />
+              {showConversion &&<ShowConversion className="current-conversion" conversion={conversion} />}
               {error && <h2>Oh No! An error occurred!</h2>}
             </>
           }
@@ -72,5 +71,18 @@ export default function App() {
       </Routes>
     </main>
   );
-}
+};
 
+Form.propTypes = {
+  currentConversionDisplay: PropTypes.func.isRequired,
+  currency: PropTypes.array.isRequired  
+};
+
+ShowConversion.propTypes = {
+  conversion: PropTypes.object.isRequired
+};
+
+SavedConversions.propTypes = {
+  savedToConversions: PropTypes.array.isRequired,
+  deleteSaved: PropTypes.func.isRequired
+};

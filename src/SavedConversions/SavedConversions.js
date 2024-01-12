@@ -1,11 +1,10 @@
 import './SavedConversions.css';
 import OneConversion from '../OneConversion/OneConversion';
+import PropTypes from 'prop-types';
 
 export default function SavedConversions({savedToConversions, deleteSaved}) {
-
-    console.log(savedToConversions, 'savedToConversions')
     return (
-        <div className="saved-conversions">
+        <div className="saved-conversions-container">
             <h1>Saved Conversions</h1>
             <div>
             {savedToConversions.length > 0 ? (
@@ -18,4 +17,17 @@ export default function SavedConversions({savedToConversions, deleteSaved}) {
             </div>
         </div>
     )
+}
+
+SavedConversions.propTypes = {
+    savedToConversions: PropTypes.arrayOf(
+        PropTypes.shape({
+            id: PropTypes.object.isRequired,
+            amount: PropTypes.number.isRequired,
+            firstCountry: PropTypes.string.isRequired,
+            secondCountry: PropTypes.string.isRequired,
+            conversionRate: PropTypes.number.isRequired
+        })
+    ),
+    deleteSaved: PropTypes.func.isRequired
 }
