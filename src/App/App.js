@@ -19,7 +19,10 @@ export default function App() {
     getCurrency() 
       .then(data => {
         // console.log(Object.keys(data.conversion_rates), 'currency data')
-        setCurrency(Object.keys(data.conversion_rates))
+        // console.log(data, 'data')
+        const countryCode = Object.keys(data.conversion_rates)
+        setCurrency(countryCode)
+        return data;
       })
   }, [])
 
@@ -34,8 +37,9 @@ export default function App() {
     })
   }, [])
     
-  function currentConversionDisplay(newConversion, buttonClick, getConv) {
+  function currentConversionDisplay(newConversion, buttonClick) {
     setConversion({...newConversion})
+    console.log(conversion, 'conversion inside of currentDisplay')
     if (buttonClick.contains('save-conversion-button')) {
       setSavedToConversions([...savedToConversions, conversion])
     }

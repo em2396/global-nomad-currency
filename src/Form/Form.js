@@ -38,13 +38,13 @@ export default function Form({currentConversionDisplay, addToSaved, twoConversio
         <form className='form-section'>
             <div className='form-inputs'>
                 <input 
-                    type='text'
+                    type='number'
                     placeholder='Amount'
                     name='Amount'
                     value={amount}
                     onChange={event => setAmount(event.target.value)}
                     />
-                <label>
+                <label className="label-one">
                     <select value={firstCountry} className="country-one" onChange={event => setFirstCountry(event.target.value)}>
                         <option value="">Selecte a country</option>
                         {currency.map((count, index) => (
@@ -52,9 +52,9 @@ export default function Form({currentConversionDisplay, addToSaved, twoConversio
                             ))}
                     </select>
                 </label>
-                <label>
+                <label className="label-two">
                     To : 
-                    <select value={secondCountry} className="country-one" onChange={event => setSecondCountry(event.target.value)}>
+                    <select value={secondCountry} className="country-two" onChange={event => setSecondCountry(event.target.value)}>
                         <option value="">Selecte a country</option>
                         {currency.map((count, index) => (
                             <option id={count} key={index} value={count}>{count}</option>
