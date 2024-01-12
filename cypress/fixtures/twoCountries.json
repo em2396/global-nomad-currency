@@ -1,0 +1,12 @@
+{
+    "result": "success",
+    "documentation": "https://www.exchangerate-api.com/docs",
+    "terms_of_use": "https://www.exchangerate-api.com/terms",
+    "time_last_update_unix": 1705017602,
+    "time_last_update_utc": "Fri, 12 Jan 2024 00:00:02 +0000",
+    "time_next_update_unix": 1705104002,
+    "time_next_update_utc": "Sat, 13 Jan 2024 00:00:02 +0000",
+    "base_code": "USD",
+    "target_code": "AED",
+    "conversion_rate": 3.6725
+}

@@ -27,3 +27,22 @@ header {
   /* height: 100vh; */
   z-index: -1;
 }
+
+@media (max-width: 1200px) {
+  #animation-container {
+    height: 100vh;
+  }
+}
+
+@media (max-width: 440px) {
+  #animation-container {
+    /* top: 0; */
+    width: 940px;
+    height: 940px;
+  }
+
+  header {
+     font-size: 70px;
+     /* color: black; */
+  }
+}

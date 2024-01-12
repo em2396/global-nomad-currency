@@ -5,6 +5,7 @@ import Form from '../Form/Form';
 import ShowConversion from '../Conversion/Conversion';
 import SavedConversions from '../SavedConversions/SavedConversions';
 import lottie from "lottie-web";
+import PropTypes from 'prop-types';
 import './App.css';
 
 export default function App() {
@@ -19,9 +20,10 @@ export default function App() {
     getCurrency() 
       .then(data => {
         // console.log(Object.keys(data.conversion_rates), 'currency data')
-        // console.log(data, 'data')
+        console.log(data, 'data')
         const countryCode = Object.keys(data.conversion_rates)
         setCurrency(countryCode)
+        console.log(currency)
         return data;
       })
   }, [])
@@ -39,7 +41,6 @@ export default function App() {
     
   function currentConversionDisplay(newConversion, buttonClick) {
     setConversion({...newConversion})
-    console.log(conversion, 'conversion inside of currentDisplay')
     if (buttonClick.contains('save-conversion-button')) {
       setSavedToConversions([...savedToConversions, conversion])
     }
@@ -72,5 +73,4 @@ export default function App() {
     </main>
   );
 }
-
 
