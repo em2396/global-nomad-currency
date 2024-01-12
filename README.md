@@ -22,6 +22,8 @@ Global Nomad Currency
 </div>
 
 ## 💭 Abstract
+The Global Nomad Currency App is a React-based web application designed to provide users with a seamless experience for converting currency values. The app employs controlled forms to capture user input, allowing them to specify an amount, choose the source currency, and select the target currency for conversion. The conversion process is facilitated through integration with external APIs, ensuring real-time and accurate exchange rates.
+
 
 ## 📝  Context
 
@@ -36,15 +38,20 @@ Global Nomad Currency
 4. Open the app in your web browser by navigating to http://localhost:3000
 
 ## 📚 Learning Goals
-
+- Use the technology you’ve been working with over the course of the module to demonstrate mastery of the following:
+  - React
+  - Router
+  - Asynchronous JavaScript
+  - End to end testing with Cypress
+- Create personas and user stories to describe your target audience.
 
 ## 🥇 Wins
-⭐ 
-⭐
-⭐ 
+⭐ Getting a better understanding of cypress testing and user interaction
+⭐ Doing a solo project helps you grow more in the long run because when you get stuck, you have to work harder to find the solution versus having two brains working to solve it.
+⭐ Being able to talk through my code and find out what a problem was with a mentor; I realize that just speaking about my problem and talking through my code, I am usually able to find a solution.
 
 
 ## 🚧 Challenges
-❗ 
-❗
-❗
+❗ While setting up the initial React app, I had created a useState for the conversionRate that was being fetched when the button was clicked. There was a big time issue that I couldn't resolve. It took a long time but I refactored to remove the useState and add it as a value inside an object instead. 
+❗ Formatting my .json data while cypress testing was initially a struggle because of the way that I pulled from the fetch. I realized I just needed to format it exactly as shown in the dev tools. 
+❗ Getting the right animation for the background was a challenge. At first, I found one I thought was really cool but I had a hard time removing white space and realized that specific animation wouldn't expand past a certain point. 
