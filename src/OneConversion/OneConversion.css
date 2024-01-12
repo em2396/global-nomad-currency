@@ -1,9 +1,22 @@
+.saved-conversions {
+    display: flex;
+    margin: 10px;
+    background: white;
+    font-size: 40px;
+    color: black;
+    border-radius: 10px;
+    opacity: .7;
+    align-items: center;
+    font-family: 'Nanum Brush Script', cursive;
+}
+
 .delete-button {
-    .material-symbols-outlined {
-    font-variation-settings:
-    'FILL' 0,
-    'wght' 400,
-    'GRAD' 0,
-    'opsz' 24
-    }
+    margin-left: 20px;
+    width: 4vw;
+    height: 4vh;
+}
+
+.one-saved-conversion {
+    margin-left: 50px;
+    font-size: 28px;
 }

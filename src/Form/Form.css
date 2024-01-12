@@ -9,7 +9,6 @@
 form {
   display: flex;
   font-size: 30px;
-  cursor: pointer;
   color: white;
 }
 
@@ -22,13 +21,13 @@ form {
   margin-bottom: 140px;
   font-family: 'Nanum Brush Script', cursive;
   font-size: 30px;
+  cursor: pointer;
 }
 
 
 .label-one,
 .label-two {
   height: 8vh;
-  
 }
 
 .country-one,
@@ -38,6 +37,7 @@ form {
   font-size: 30px;
   height: 8vh;
   box-shadow: 20px 20px 80px rgb(193, 4, 250);
+  cursor: pointer;
 }
 
 .label-two {
@@ -49,45 +49,90 @@ form {
   display: flex;
 }
 
+.save-conversion-button {
+  margin: 10px;
+  border-radius: 27px;
+  box-shadow: 9px 14px 30px rgb(193, 4, 250);
+  font-size: 22px;
+  font-family: 'Nanum Brush Script', cursive;
+  cursor: pointer;
+}
+
 .show-conversion-button, 
 .saved-button,
 .clear-button,
-.save-conversion-button {
+.save-conversion-button:not(:disabled) {
   margin: 10px;
   width: 10vw;
   height: 6vh;
   border-radius: 27px;
   box-shadow: 9px 14px 30px rgb(193, 4, 250);
-  font-size: 25px;
+  font-size: 22px;
   font-family: 'Nanum Brush Script', cursive;
+  cursor: pointer;
 }
 
-@media (max-width: 440px) {
+.show-conversion-button:hover, 
+.saved-button:not(:disabled):hover,
+.clear-button:hover,
+.show-conversion-button:hover {
+  background-color: black;
+  color: white;
+}
+
+
+@media (max-width: 1210px) {
   .show-conversion-button, 
   .saved-button,
   .clear-button,
-  .save-conversion-button  {
-  width: 20vw;
-  font-size: 20px;
+  .save-conversion-button:not(:disabled) {
+    font-size: 32px;
+    width: 20vw;
+  }
+}
+
+@media (max-width: 920px) {
+  .show-conversion-button, 
+  .saved-button,
+  .clear-button,
+  .save-conversion-button:not(:disabled) {
+    font-size: 25px;
+  }
+}
+
+@media (max-width: 737px) {
+  .show-conversion-button, 
+  .saved-button,
+  .clear-button,
+  .save-conversion-button:not(:disabled)  {
+  width: 21vw;
+  font-size: 17px;
 }
 
 .country-one,
 .country-two,
 .amount {
   display: flex;
+  font-size: 19px;
 }
 
 .amount {
+  width: 29vw;
+  margin-bottom: 25px;
+}
+
+.country-one,
+.country-two {
   width: 30vw;
-  margin: 25px;
 }
 }
 
-
-/* 
-form {
-    margin: auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-} */
+@media (max-width: 400px) {
+  .show-conversion-button, 
+  .saved-button,
+  .clear-button,
+  .save-conversion-button  {
+  width: 19vw;
+  font-size: 16px;
+}
+}

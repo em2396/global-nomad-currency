@@ -3,5 +3,8 @@
     background: white;
     font-size: 40px;
     color: black;
-   
+    border-radius: 10px;
+    opacity: .7;
+    box-shadow: 9px 14px 30px rgb(193, 4, 250);
+    font-family: 'Nanum Brush Script', cursive;
 }

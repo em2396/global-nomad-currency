@@ -1,16 +1,18 @@
 import './Form.css';
-import { useState } from 'react'
-import { Link } from 'react-router-dom'
-import PropTypes from 'prop-types'
+import { useState } from 'react';
+import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 export default function Form({currentConversionDisplay, currency}) {
     const [ amount, setAmount ] = useState("");
     const [ firstCountry, setFirstCountry ] = useState("");
     const [ secondCountry, setSecondCountry ] = useState("");
+    const [ saveButton, setSaveButton ] = useState(false);  
 
     
     async function displayConversion(event) {
         event.preventDefault();
+        setSaveButton(true);
         try {
         const getConversionRate = await fetch(`https://v6.exchangerate-api.com/v6/516b2360d76d3364e8dc234b/pair/${firstCountry}/${secondCountry}`)
         const response = await getConversionRate.json()
@@ -26,17 +28,15 @@ export default function Form({currentConversionDisplay, currency}) {
         } catch (error) {
             console.error('Error during conversion:', error);
         }
-    }
+    };
     
     
     function clearInputs() {
         setFirstCountry("");
         setSecondCountry("");
         setAmount("");
-    }
+    };
     
-
-    //create a disabled button, useState for disabled. 
     return (
         <form className='form-section'>
             <div className='form-inputs'>
@@ -67,7 +67,7 @@ export default function Form({currentConversionDisplay, currency}) {
             </div>
             <div className='form-buttons'>
                 <button className="show-conversion-button" onClick={event => displayConversion(event)}>Show Conversion</button>
-                <button className="save-conversion-button" onClick={event => displayConversion(event)}>Save Conversion</button>
+                <button className="save-conversion-button" disabled={!saveButton} onClick={event => displayConversion(event)}>Save Conversion</button>
                 <button className="clear-button" onClick={() => clearInputs()}>Clear</button>
                 <Link to="/saved">
                     <button className="saved-button">Go to Saved</button>
@@ -80,5 +80,13 @@ export default function Form({currentConversionDisplay, currency}) {
 Form.propTypes = {
     currency : PropTypes.arrayOf(PropTypes.string).isRequired,
     currentConversionDisplay: PropTypes.func.isRequired,
-    // conversion: PropTypes
-  }
+    conversion: PropTypes.objectOf(
+        PropTypes.shape({
+            id: PropTypes.number.isRequired,
+            amount: PropTypes.number.isRequired,
+            firstCountry: PropTypes.string.isRequired,
+            secondCountry: PropTypes.string.isRequired,
+            conversionRate: PropTypes.number.isRequired
+        })
+    )
+  };

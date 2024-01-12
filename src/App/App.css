@@ -6,9 +6,7 @@
 header {
   font-size: 150px;
   font-family: 'Nanum Brush Script', cursive;
-  /* margin: 30px; */
-  /* margin-bottom: 100px; */
-  /* background: #001334; */
+  cursor: pointer;
   color: white;
   margin: 0;
 }
@@ -18,19 +16,18 @@ header {
   color: black; 
   width: 40%;
   height: 45%;
-  /* z-index: 5; */
 }
 
 #animation-container {
   position: fixed;
   width: 100vw;
-  /* height: 100vh; */
   z-index: -1;
 }
 
-@media (max-width: 1200px) {
+@media (max-width: 1210px) {
   #animation-container {
-    height: 100vh;
+    height: 1400px;
+    width: 1400px;
   }
 }
 
@@ -42,7 +39,6 @@ header {
   }
 
   header {
-     font-size: 70px;
-     /* color: black; */
+    font-size: 70px;
   }
 }
