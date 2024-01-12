@@ -1,4 +1,4 @@
-</div align="center">
+<div align="center">
 
 Global Nomad Currency 
 ![Tests](https://badgen.net/badge/tests/passing/green?icon=github)
