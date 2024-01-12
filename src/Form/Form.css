@@ -3,8 +3,87 @@
   flex-direction: column;
   align-items: center;
   margin-top: 100px;
-  /* height: 100vh; */
+  font-family: 'Nanum Brush Script', cursive;
 }
+
+form {
+  display: flex;
+  font-size: 30px;
+  cursor: pointer;
+  color: white;
+}
+
+.amount {
+  width: 17%;
+  height: 8vh;
+  margin-right: 70px;
+  border-radius: 10px;
+  box-shadow: 20px 20px 80px rgb(193, 4, 250);
+  margin-bottom: 140px;
+  font-family: 'Nanum Brush Script', cursive;
+  font-size: 30px;
+}
+
+
+.label-one,
+.label-two {
+  height: 8vh;
+  
+}
+
+.country-one,
+.country-two {
+  border-radius: 10px;
+  font-family: 'Nanum Brush Script', cursive;
+  font-size: 30px;
+  height: 8vh;
+  box-shadow: 20px 20px 80px rgb(193, 4, 250);
+}
+
+.label-two {
+  margin-right: 10px;
+}
+
+
+.form-buttons {
+  display: flex;
+}
+
+.show-conversion-button, 
+.saved-button,
+.clear-button,
+.save-conversion-button {
+  margin: 10px;
+  width: 10vw;
+  height: 6vh;
+  border-radius: 27px;
+  box-shadow: 9px 14px 30px rgb(193, 4, 250);
+  font-size: 25px;
+  font-family: 'Nanum Brush Script', cursive;
+}
+
+@media (max-width: 440px) {
+  .show-conversion-button, 
+  .saved-button,
+  .clear-button,
+  .save-conversion-button  {
+  width: 20vw;
+  font-size: 20px;
+}
+
+.country-one,
+.country-two,
+.amount {
+  display: flex;
+}
+
+.amount {
+  width: 30vw;
+  margin: 25px;
+}
+}
+
+
 /* 
 form {
     margin: auto;
@@ -12,35 +91,3 @@ form {
     flex-direction: column;
     align-items: center;
 } */
-
-input, form {
-    display: flex;
-    margin: 5px;
-    width: 100%;
-    font-size: 30px;
-    cursor: pointer;
-}
-
-.form-inputs,
-label {
-    display: flex;
-    margin-bottom: 20px;
-}
-
-.form-buttons {
-    display: flex;
-  }
-
-  .show-conversion-button, 
-  .saved-button,
-  .clear-button,
-  .save-conversion-button {
-    margin: 10px;
-    width: 150px;
-    height: 3vh;
-  }
-
-
-
-
-  

@@ -1,8 +1,9 @@
 import './Form.css';
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
+import PropTypes from 'prop-types'
 
-export default function Form({currentConversionDisplay, addToSaved, twoConversions, currency}) {
+export default function Form({currentConversionDisplay, currency}) {
     const [ amount, setAmount ] = useState("");
     const [ firstCountry, setFirstCountry ] = useState("");
     const [ secondCountry, setSecondCountry ] = useState("");
@@ -34,10 +35,12 @@ export default function Form({currentConversionDisplay, addToSaved, twoConversio
         setAmount("");
     }
     
+
+    //create a disabled button, useState for disabled. 
     return (
         <form className='form-section'>
             <div className='form-inputs'>
-                <input 
+                <input className="amount"
                     type='number'
                     placeholder='Amount'
                     name='Amount'
@@ -53,7 +56,7 @@ export default function Form({currentConversionDisplay, addToSaved, twoConversio
                     </select>
                 </label>
                 <label className="label-two">
-                    To : 
+                    <span>&rarr;</span>
                     <select value={secondCountry} className="country-two" onChange={event => setSecondCountry(event.target.value)}>
                         <option value="">Selecte a country</option>
                         {currency.map((count, index) => (
@@ -73,3 +76,9 @@ export default function Form({currentConversionDisplay, addToSaved, twoConversio
         </form>
     )
 }
+
+Form.propTypes = {
+    currency : PropTypes.arrayOf(PropTypes.string).isRequired,
+    currentConversionDisplay: PropTypes.func.isRequired,
+    // conversion: PropTypes
+  }

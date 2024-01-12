@@ -3,7 +3,11 @@ describe('Display header on page load and drop down of countries', () => {
     cy.intercept("GET", " https://v6.exchangerate-api.com/v6/516b2360d76d3364e8dc234b/latest/USD", {
       statusCode: 200,
       fixture: 'countryCodes.json'
-    }).as('getCurrency');
+    })
+    cy.intercept("GET", "https://v6.exchangerate-api.com/v6/516b2360d76d3364e8dc234b/pair/USD/AED", {
+      statusCode: 200,
+      fixture: 'twoCountries.json'
+    })
     cy.visit("http://localhost:3000")
 
   });
@@ -15,22 +19,16 @@ describe('Display header on page load and drop down of countries', () => {
 
   it("Should display a dropdown for the first country selection", () => {
     cy.get('.country-one').should('be.visible');
-    cy.get('.country-one').children('option').should('have.length',  10)
+    cy.get('.country-one').children('option').should('have.length',  163)
   })
 
   it("Should display a dropdown for the second country selection", () => {
     cy.get('.country-two').should('be.visible');
-    cy.get('.country-two').children('option').should('have.length',  10)
+    cy.get('.country-two').children('option').should('have.length',  163)
   })
 
   it('should choose an amount and two countries to display conversion of number', () => {
-    cy.intercept("https://v6.exchangerate-api.com/v6/516b2360d76d3364e8dc234b/pair/USD/AED", {
-      statusCode: 200,
-      body: {
-        result: "success",
-        conversionRate: 14.69
-      }
-    })
+    
 
     cy.get("input").type(2).should('have.value', 2)
     cy.get(".country-one").select(1).invoke("val").should("eq", "USD")
@@ -38,7 +36,7 @@ describe('Display header on page load and drop down of countries', () => {
 
       .get(".show-conversion-button").click()
       .get(".conversion-paragraph").should("be.visible")
-      .get(".conversion-paragraph").should("contain", `2 USD is ${conversionRate} AED`)
+      .get(".conversion-paragraph").should("contain", `2 USD is 14.69 AED`)
   })
 
   it("Should save the current conversion", () => {
