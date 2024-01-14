@@ -31,6 +31,10 @@ I am a front-end developer who worked remotely to complete this application. Thi
 ## 🎥 Preview 
 
 
+https://github.com/em2396/global-nomad-currency/assets/116819092/b59a337c-0570-4dbe-a8b0-88f787531597
+
+
+
 ## 🔌 Server Setup
 1. Clone the repository: Open a terminal window. Navigate to the directory where you want to clone the repository. Run the following command: git clone 
 2. Install the dependencies: Run the following command in the cloned repository directory: npm install
