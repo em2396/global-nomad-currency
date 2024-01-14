@@ -36,7 +36,7 @@ https://github.com/em2396/global-nomad-currency/assets/116819092/b59a337c-0570-4
 
 
 ## 🔌 Server Setup
-1. Clone the repository: Open a terminal window. Navigate to the directory where you want to clone the repository. Run the following command: git clone 
+1. Clone the repository: Open a terminal window. Navigate to the directory where you want to clone the repository. Run the following command: git clone git@github.com:em2396/global-nomad-currency.git
 2. Install the dependencies: Run the following command in the cloned repository directory: npm install
 3. Run the React app: Run the following command in the cloned repository directory: npm start
 4. Open the app in your web browser by navigating to http://localhost:3000
